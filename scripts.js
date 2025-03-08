@@ -3,7 +3,6 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentProduct = null;
 let currentQuantity = 1;
 let currentImageIndex = 0;
-let chatMessages = [];
 let startX = 0;
 let isSwiping = false;
 
@@ -32,7 +31,6 @@ function displayProducts(filteredProducts = products) {
             <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${index})">
             <h2>${product.name}</h2>
             <p class="price">${product.price}₽</p>
-            <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать 🛍️</button>
             <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
         `;
         productsDiv.appendChild(productDiv);
@@ -82,7 +80,6 @@ function openModal(index) {
     });
 
     document.getElementById("modalProductPrice").innerText = `Цена: ${currentProduct.price}₽`;
-    document.getElementById("modalProductQuantity").innerText = currentQuantity;
     document.getElementById("productModal").style.display = "block";
 }
 
@@ -93,26 +90,30 @@ function closeModal() {
     currentImageIndex = 0;
 }
 
-function nextImage() {
-    const images = currentProduct.images;
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    updateModalImages();
-}
-
-function prevImage() {
-    const images = currentProduct.images;
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    updateModalImages();
-}
-
-function updateModalImages() {
-    const modalProductImages = document.getElementById("modalProductImages");
-    const imgs = modalProductImages.getElementsByTagName('img');
-    Array.from(imgs).forEach(img => img.classList.remove('active'));
-    if (imgs[currentImageIndex]) {
-        imgs[currentImageIndex].classList.add('active');
-    }
-}
-
 function openFullscreen(images, startIndex) {
-    currentImageIndex
+    currentImageIndex = startIndex;
+    const fullscreenContainer = document.getElementById("fullscreenContainer");
+    fullscreenContainer.style.display = "block";
+    const fullscreenImages = document.getElementById("fullscreenImages");
+    fullscreenImages.innerHTML = '';
+
+    images.forEach((image) => {
+        const img = document.createElement('img');
+        img.src = image;
+        fullscreenImages.appendChild(img);
+    });
+
+    updateFullscreenImage();
+
+    fullscreenImages.addEventListener('touchstart', handleTouchStart);
+    fullscreenImages.addEventListener('touchmove', handleTouchMove);
+    fullscreenImages.addEventListener('touchend', handleTouchEnd);
+}
+
+function updateFullscreenImage() {
+    const fullscreenImages = document.getElementById("fullscreenImages").getElementsByTagName('img');
+    Array.from(fullscreenImages).forEach(img => img.classList.remove('active'));
+    fullscreenImages[currentImageIndex].classList.add('active');
+}
+
+function handleTouchStart(event) {
