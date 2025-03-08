@@ -40,7 +40,6 @@ function displayProducts(filteredProducts = products) {
             <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать 🛍️</button>
             <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
         `;
-        productDiv.addEventListener('click', () => openModal(products.indexOf(product)));
         productsDiv.appendChild(productDiv);
     });
 }
@@ -54,13 +53,12 @@ function displayRecommendedProducts() {
         const productDiv = document.createElement("div");
         productDiv.className = "product-card";
         productDiv.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${index})">
+            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${products.indexOf(product)})">
             <h2>${product.name}</h2>
             <p class="price">${product.price}₽</p>
             <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать</button>
             <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
         `;
-        productDiv.addEventListener('click', () => openModal(index));
         recommendedDiv.appendChild(productDiv);
     });
 }
@@ -74,13 +72,12 @@ function displayNewProducts() {
         const productDiv = document.createElement("div");
         productDiv.className = "product-card";
         productDiv.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${index})">
+            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${products.indexOf(product)})">
             <h2>${product.name}</h2>
             <p class="price">${product.price}₽</p>
             <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать</button>
             <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
         `;
-        productDiv.addEventListener('click', () => openModal(index));
         newProductsDiv.appendChild(productDiv);
     });
 }
@@ -94,13 +91,12 @@ function displaySaleProducts() {
         const productDiv = document.createElement("div");
         productDiv.className = "product-card";
         productDiv.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${index})">
+            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${products.indexOf(product)})">
             <h2>${product.name}</h2>
             <p class="price">${product.price}₽</p>
             <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать</button>
             <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
         `;
-        productDiv.addEventListener('click', () => openModal(index));
         saleProductsDiv.appendChild(productDiv);
     });
 }
@@ -114,13 +110,12 @@ function displayPopularProducts() {
         const productDiv = document.createElement("div");
         productDiv.className = "product-card";
         productDiv.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${index})">
+            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${products.indexOf(product)})">
             <h2>${product.name}</h2>
             <p class="price">${product.price}₽</p>
             <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать</button>
             <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
         `;
-        productDiv.addEventListener('click', () => openModal(index));
         popularProductsDiv.appendChild(productDiv);
     });
 }
@@ -132,7 +127,7 @@ function displayCart() {
         const cartItemDiv = document.createElement("div");
         cartItemDiv.className = "cart-item";
         cartItemDiv.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" onclick="openModalFromCart(${index})">
+            <img src="${item.image}" alt="${item.name}">
             <p>${item.name} - ${item.price}₽ x ${item.quantity}</p>
             <button class="btn" onclick="removeFromCart(${index})">Удалить</button>
         `;
