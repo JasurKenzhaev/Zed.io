@@ -14,7 +14,7 @@
         <input type="text" id="search-bar" placeholder="🔍Поиск..." oninput="filterProducts()">
         <nav class="botto">
             <button class="menu-button" onclick="toggleMenu()">ZED</button>
-            <div id="menu-panel" class="menu-panel1">
+            <div id="menu-panel" class="menu-panel">
                 <button onclick="showRecommended()">📦 Рекомендуемые</button>
                 <button onclick="showPopularProducts()">🔥 Популярные товары</button>
             </div>
@@ -32,7 +32,7 @@
             </div>
         </section>
         <section class="new-products" id="new-products-gallery" style="display: none;">
-            <h2>Профиль 👤</h2>
+            <h2>Новые товары</h2>
             <div class="gallery" id="new-products">
                 <!-- Новые продукты будут добавлены здесь через JavaScript -->
             </div>
@@ -76,11 +76,12 @@
         </div>
     </div>
 
- <!-- Полноэкранный режим -->
-<div id="fullscreenContainer" style="display:none;">
-    <div id="fullscreenImages"></div>
-    <button onclick="closeFullscreen()">Закрыть</button>
-</div>
+    <!-- Полноэкранный режим -->
+    <div id="fullscreen" class="fullscreen">
+        <span class="close-fullscreen" onclick="closeFullscreen()">&times;</span>
+        <div id="fullscreenImages" class="fullscreen-images"></div>
+        <div class="image-count"></div>
+    </div>
 
     <!-- Чаты -->
     <div id="chatContainer" class="chat-container">
@@ -101,15 +102,14 @@
 
     <div class="social-media">
         <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/i" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
-        <a href="https://wa.me/" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://vk.com/" target="_blank" class="vk"><i class="fab fa-vk"></i></a>
-        <a href="https://youtube.com/" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/____no_name____.__?igsh=aGJpOW83MmZoZ21o&utm_source=qr" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/+jav7eB_a5rc4NjZi" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/+79964684744" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://vk.com/id756665575" target="_blank" class="vk"><i class="fab fa-vk"></i></a>
+        <a href="https://youtube.com/channel/UCbKThWSdaYNLMaPmdK4XyyA?si=cmyDMGcOSjckE7cw" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()"></button>
 
     <script src="scripts.js"></script>
 </body>
 </html>
-
