@@ -474,43 +474,17 @@ body.dark-mode .chat-container {
     transform: scale(1.2);
 }
 
-position: fixed;
-bottom: 0;
-width: 100%;
-background-color: #d2b48c;
-display: flex;
-justify-content: space-around;
-padding: 10px;
-border-top: 1px solid #ccc;
-z-index: 10; /* Увеличиваем z-index, чтобы кнопки всегда были поверх контента */
-
-/* Добавляем стиль для кнопок */
-button {
-    background-color: #fff; /* Цвет фона кнопки */
-    border: none; /* Убираем стандартную рамку */
-    border-radius: 5px; /* Скругленные углы */
-    padding: 10px 15px; /* Отступы внутри кнопки */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для кнопки */
-    cursor: pointer; /* Указываем, что это кнопка */
-    transition: background-color 0.3s, transform 0.2s; /* Плавные переходы */
-}
-
-/* Эффект наведения */
-button:hover {
-    background-color: #f0e68c; /* Цвет фона при наведении */
-    transform: translateY(-2px); /* Легкий подъем кнопки */
-}
-
-/* Эффект нажатия */
-button:active {
-    transform: translateY(1px); /* Легкое опускание при нажатии */
-}
-
-/* Стили для текста на кнопках */
-button span {
-    font-size: 16px; /* Размер текста */
-    color: #333; /* Цвет текста */
-    font-weight: bold; /* Жирный текст */
+/* Управляющие кнопки внизу */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #d2b48c;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    z-index: 10; /* Увеличиваем z-index, чтобы кнопки всегда были поверх контента */
 }
 
 .bottom-nav .nav-button {
