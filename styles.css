@@ -483,7 +483,7 @@ body.dark-mode .chat-container {
     background-color: #73AD21;
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 20px;
     border-top: 1px solid #ccc;
     z-index: 10; /* Увеличиваем z-index, чтобы кнопки всегда были поверх контента */
 }
