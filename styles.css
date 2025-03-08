@@ -476,10 +476,11 @@ body.dark-mode .chat-container {
 
 /* Управляющие кнопки внизу */
 .bottom-nav {
+    border-radius: 15px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #d2b48c;
+    background-color: #73AD21;
     display: flex;
     justify-content: space-around;
     padding: 10px;
