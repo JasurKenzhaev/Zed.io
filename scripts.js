@@ -116,4 +116,52 @@ function updateFullscreenImage() {
     fullscreenImages[currentImageIndex].classList.add('active');
 }
 
-function handleTouchStart(event) {
+function handleTouchStart(event) { 
+        startX = event.touches[0].clientX;
+    isSwiping = true;
+}
+
+function handleTouchMove(event) {
+    if (!isSwiping) return;
+    const currentX = event.touches[0].clientX;
+    if (startX - currentX > 50) {
+        nextFullscreenImage();
+        isSwiping = false;
+    } else if (currentX - startX > 50) {
+        prevFullscreenImage();
+        isSwiping = false;
+    }
+}
+
+function handleTouchEnd() {
+    isSwiping = false;
+}
+
+function nextFullscreenImage() {
+    const imagesCount = currentProduct.images.length;
+    currentImageIndex = (currentImageIndex + 1) % imagesCount;
+    updateFullscreenImage();
+}
+
+function prevFullscreenImage() {
+    const imagesCount = currentProduct.images.length;
+    currentImageIndex = (currentImageIndex - 1 + imagesCount) % imagesCount;
+    updateFullscreenImage();
+}
+
+function closeFullscreen() {
+    document.getElementById("fullscreenContainer").style.display = "none";
+    currentImageIndex = 0; // Сброс индекса изображения при закрытии
+}
+
+// Удаление товара из корзины
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+// Инициализация приложения
+loadProducts();
+displayCart();
+
