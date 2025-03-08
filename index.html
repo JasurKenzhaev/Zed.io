@@ -76,12 +76,11 @@
         </div>
     </div>
 
-    <!-- Полноэкранный режим -->
-    <div id="fullscreen" class="fullscreen">
-        <span class="close-fullscreen" onclick="closeFullscreen()">&times;</span>
-        <div id="fullscreenImages" class="fullscreen-images"></div>
-        <div class="image-count"></div>
-    </div>
+ <!-- Полноэкранный режим -->
+<div id="fullscreenContainer" style="display:none;">
+    <div id="fullscreenImages"></div>
+    <button onclick="closeFullscreen()">Закрыть</button>
+</div>
 
     <!-- Чаты -->
     <div id="chatContainer" class="chat-container">
