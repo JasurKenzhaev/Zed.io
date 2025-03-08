@@ -10,27 +10,21 @@
 </head>
 <body>
     <header>
-        <h1>Zed Shop</h1>
+        <h1>Добро пожаловать в интернет-магазин Shaxa</h1>
         <input type="text" id="search-bar" placeholder="🔍Поиск..." oninput="filterProducts()">
-        <button class="menu-button" onclick="toggleMenu()">Меню</button>
-        <div class="menu-panel" id="menu-panel">
-            <button class="btn" onclick="showMain()">Главная 📌</button>
-            <button class="btn" onclick="showRecommended()">Рекомендуемые товары 😊</button>
-            <button class="btn" onclick="showNewProducts()">Новые товары 🆕</button>
-            <button class="btn" onclick="showSaleProducts()">Товары со скидкой 🏷️</button>
-            <button class="btn" onclick="showPopularProducts()">Популярные товары 🔥</button>
-            <button class="btn" onclick="showCartSection()">Корзина 🛒</button>
-        </div>
-        <div class="social-media">
-            <a href="" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-            <a href="" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
-            <a href="" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a href="" target="_blank" class="vk"><i class="fab fa-vk"></i></a>
-            <a href="" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
-        </div>
-        <button class="theme-toggle" onclick="toggleTheme()"></button>
+        <nav class="botto">
+            <button class="menu-button" onclick="toggleMenu()">🍔</button>
+            <div id="menu-panel" class="menu-panel">
+                <button onclick="showMain()">🏠 Главная</button>
+                <button onclick="showRecommended()">📦 Рекомендуемые</button>
+                <button onclick="showNewProducts()">🛒 Новые товары</button>
+                <button onclick="showSaleProducts()">🏷️ Товары со скидкой</button>
+                <button onclick="showPopularProducts()">🔥 Популярные товары</button>
+                <button onclick="showCartSection()">👤 Профиль</button>
+            </div>
+        </nav>
     </header>
+
     <main>
         <section class="gallery" id="product-gallery">
             <!-- Продукты будут добавлены здесь через JavaScript -->
@@ -65,6 +59,7 @@
             <button class="btn" onclick="checkout()">Оформить заказ</button>
         </section>
     </main>
+
     <!-- Модальное окно -->
     <div id="productModal" class="modal">
         <div class="modal-content">
@@ -84,12 +79,14 @@
             <button class="btn" onclick="openTelegramChat()"> Открыть чат💬</button>
         </div>
     </div>
+
     <!-- Полноэкранный режим -->
     <div id="fullscreen" class="fullscreen">
         <span class="close-fullscreen" onclick="closeFullscreen()">&times;</span>
         <div id="fullscreenImages" class="fullscreen-images"></div>
         <div class="image-count"></div>
     </div>
+
     <!-- Чаты -->
     <div id="chatContainer" class="chat-container">
         <div class="chat-header">
@@ -99,6 +96,27 @@
         <div class="chat-messages" id="chatMessages"></div>
         <input type="text" id="chatInput" class="chat-input" placeholder="Напишите сообщение..." onkeypress="sendMessage(event)">
     </div>
+
+    <!-- Управляющие кнопки внизу -->
+    <footer class="bottom-nav">
+        <button class="nav-button" onclick="showMain()">🏠</button>
+        <button class="nav-button" onclick="showRecommended()">📦</button>
+        <button class="nav-button" onclick="showNewProducts()">🛒</button>
+        <button class="nav-button" onclick="showSaleProducts()">🏷️</button>
+        <button class="nav-button" onclick="showPopularProducts()">🔥</button>
+        <button class="nav-button" onclick="showCartSection()">👤</button>
+    </footer>
+
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/____no_name____.__?igsh=aGJpOW83MmZoZ21o&utm_source=qr" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/+jav7eB_a5rc4NjZi" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/+79964684744" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://vk.com/id756665575" target="_blank" class="vk"><i class="fab fa-vk"></i></a>
+        <a href="https://youtube.com/channel/UCbKThWSdaYNLMaPmdK4XyyA?si=cmyDMGcOSjckE7cw" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()"></button>
+
     <script src="scripts.js"></script>
 </body>
 </html>
