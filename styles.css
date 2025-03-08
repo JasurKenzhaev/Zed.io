@@ -1,3 +1,571 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header {
+    background-color: #d2b48c;
+    color: #000000;
+    padding: 1em;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #d2b48c;
+    border: 1px solid #ccc;
+    color: #000000;
+    padding: 0.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.menu-button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+.menu-panel {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 8px;
+    background-color: #d2b48c;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.menu-panel button {
+    background-color: #d2b48c;
+    border: 1px solid #ccc;
+    color: #000000;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    text-align: left;
+}
+
+.menu-panel button:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1em;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+body.dark-mode .product-card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-bottom: 1em;
+}
+
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+.product-card h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.product-card p {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+.product-card .price {
+    font-size: 1.2em;
+    color: #d2b48c;
+    margin-bottom: 1em;
+}
+
+.product-card button {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    padding: 0.5em 1em;
+    margin: 0.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.cart {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .cart {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.cart-item {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cart-item button {
+    background-color: #dc3545;
+    border: none;
+    color: #ffffff;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+.btn {
+    margin: 5px;
+    padding: 10px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+body.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Анимация перехода между картинками */
+.image-slider img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-slider img.active {
+    opacity: 1;
+}
+
+/* Контейнер для изображений */
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Фиксированная высота для контейнера изображений */
+    overflow: hidden;
+}
+
+.image-count {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Полноэкранный режим */
+.fullscreen {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+}
+
+.fullscreen img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fullscreen img.active {
+    opacity: 1;
+}
+
+.fullscreen .close-fullscreen {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Чаты */
+.chat-container {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+body.dark-mode .chat-container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.chat-header {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.chat-messages {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.chat-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Социальные сети */
+.social-media {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    animation: fadeInSocial 1s ease-in-out;
+}
+
+@keyframes fadeInSocial {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.social-media a {
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-media a.facebook {
+    color: #1877f2;
+}
+
+.social-media a.instagram {
+    color: #e1306c;
+}
+
+.social-media a.telegram {
+    color: #0088cc;
+}
+
+.social-media a.whatsapp {
+    color: #25d366;
+}
+
+.social-media a.vk {
+    color: #4a76a8;
+}
+
+.social-media a.youtube {
+    color: #ff0000;
+}
+
+.social-media a:hover {
+    opacity: 0.7;
+    transform: scale(1.2);
+}
+
+/* Кнопка переключения тем */
+.theme-toggle {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.2);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5em;
+    }
+
+    .menu-button {
+        top: 5px;
+        left: 5px;
+        padding: 0.3em;
+        font-size: 18px;
+    }
+
+    .menu-panel {
+        top: 40px;
+        left: 5px;
+        width: calc(100% - 10px);
+    }
+
+    .menu-panel button {
+        padding: 0.3em 0.5em;
+        font-size: 14px;
+    }
+
+    main {
+        padding: 0.5em;
+    }
+
+    .gallery {
+        width: 100%;
+    }
+
+    .product-card {
+        width: 100%;
+        padding: 0.3em;
+    }
+
+    .cart {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 1em;
+    }
+
+    .chat-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .social-media {
+        top: 5px;
+        right: 5px;
+        gap: 5px;
+    }
+
+    .social-media a {
+        font-size: 20px;
+    }
+
+    .theme-toggle {
+        bottom: 5px;
+        left: 5px;
+        font-size: 20px;
+    }
+
+
+/* Управляющие кнопки внизу */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #d2b48c;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    z-index: 1;
+}
+
+.bottom-nav .nav-button {
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.bottom-nav .nav-button:hover {
+    transform: scale(1.2);
+}
 /* Управляющие кнопки внизу */
 .bottom-nav {
     position: fixed;
