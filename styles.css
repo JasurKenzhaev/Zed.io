@@ -475,15 +475,13 @@ body.dark-mode .chat-container {
 }
 
 /* Управляющие кнопки внизу */
-.bottom-nav {
-    border-radius: 15px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #73AD21;
+    background-color: #d2b48c;
     display: flex;
     justify-content: space-around;
-    padding: 20px;
+    padding: 10px;
     border-top: 1px solid #ccc;
     z-index: 10; /* Увеличиваем z-index, чтобы кнопки всегда были поверх контента */
 }
