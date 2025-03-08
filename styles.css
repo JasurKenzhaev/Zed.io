@@ -85,6 +85,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 1em;
+    padding-bottom: 60px; /* Отступ снизу, чтобы контент не перекрывал кнопки */
 }
 
 .gallery {
@@ -473,99 +474,6 @@ body.dark-mode .chat-container {
     transform: scale(1.2);
 }
 
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5em;
-    }
-
-    .menu-button {
-        top: 5px;
-        left: 5px;
-        padding: 0.3em;
-        font-size: 18px;
-    }
-
-    .menu-panel {
-        top: 40px;
-        left: 5px;
-        width: calc(100% - 10px);
-    }
-
-    .menu-panel button {
-        padding: 0.3em 0.5em;
-        font-size: 14px;
-    }
-
-    main {
-        padding: 0.5em;
-    }
-
-    .gallery {
-        width: 100%;
-    }
-
-    .product-card {
-        width: 100%;
-        padding: 0.3em;
-    }
-
-    .cart {
-        width: 90%;
-    }
-
-    .modal-content {
-        width: 90%;
-        padding: 1em;
-    }
-
-    .chat-container {
-        width: 100%;
-        height: 300px;
-    }
-
-    .social-media {
-        top: 5px;
-        right: 5px;
-        gap: 5px;
-    }
-
-    .social-media a {
-        font-size: 20px;
-    }
-
-    .theme-toggle {
-        bottom: 5px;
-        left: 5px;
-        font-size: 20px;
-    }
-
-
-/* Управляющие кнопки внизу */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #d2b48c;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border-top: 1px solid #ccc;
-    z-index: 1;
-}
-
-.bottom-nav .nav-button {
-    background-color: transparent;
-    border: none;
-    color: #000000;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.bottom-nav .nav-button:hover {
-    transform: scale(1.2);
-}
 /* Управляющие кнопки внизу */
 .bottom-nav {
     position: fixed;
@@ -618,7 +526,7 @@ body.dark-mode .chat-container {
 
     main {
         padding: 0.5em;
-        padding-bottom: 60px; /* Добавляем отступ снизу, чтобы контент не перекрывал кнопки */
+        padding-bottom: 60px; /* Отступ снизу, чтобы контент не перекрывал кнопки */
     }
 
     .gallery {
