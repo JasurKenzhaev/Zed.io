@@ -326,13 +326,6 @@ body.dark-mode .modal-content {
     background-color: rgba(0, 0, 0, 0.9);
     overflow: hidden;
 }
-.active
-#fullscreenImages img {
-    display: none;
-    width: 100%;
-    height: auto;
-}
-
 #fullscreenImages img.active {
     display: block;
 }
@@ -588,4 +581,15 @@ body.dark-mode .chat-container {
         font-size: 20px;
         padding: 5px;
     }
+    #fullscreenImages img {
+    display: none;
+    width: 100%;
+    height: auto;
+    }
+.active {
+#fullscreenImages img.active {
+    display: block;
+
+    }
+ }
 }
