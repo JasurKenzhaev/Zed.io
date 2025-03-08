@@ -1,4 +1,3 @@
-
 let products = [];
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentProduct = null;
@@ -164,6 +163,7 @@ function addToCart(name, price, image, quantity = 1) {
     localStorage.setItem('cart', JSON.stringify(cart));
     alert(`${name} добавлен в корзину 🛒!`);
     displayCart();
+    // Убедитесь, что здесь нет вызова openModal
 }
 
 function addToCartFromModal() {
