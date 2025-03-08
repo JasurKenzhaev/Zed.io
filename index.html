@@ -55,24 +55,26 @@
             <button class="btn" onclick="checkout()">Оформить заказ</button>
         </section>
     </main>
-   
-<div id="productModal" class="modal">
-    <div class="modal-content">
-        <span id="closeModalButton" class="close">&times;</span>
-        <h2 id="modalProductName"></h2>
-        <div id="modalProductImages" class="image-slider"></div>
-        <p id="modalProductPrice"></p>
-        <p>Количество: <span id="modalProductQuantity"></span></p>
-        <div id="imageCount"></div>
-        <button onclick="addToCart(currentProduct.name, currentProduct.price, currentProduct.images[0])">Добавить в корзину</button>
-        <div id="modalReviews"></div>
+
+    <!-- Модальное окно -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalProductName"></h2>
+            <div id="modalProductImages" class="image-slider"></div>
+            <div class="image-count"></div>
+            <p id="modalProductPrice"></p>
+            <div>
+                <button class="btn" onclick="decreaseQuantity()">-</button>
+                <span id="modalProductQuantity">1</span>
+                <button class="btn" onclick="increaseQuantity()">+</button>
+            </div>
+            <button class="btn" onclick="addToCartFromModal()">в корзину 🛒</button>
+            <h3>Отзывы:</h3>
+            <div id="modalProductReviews"></div>
+            <button class="btn" onclick="openTelegramChat()"> Открыть чат💬</button>
+        </div>
     </div>
-</div>
-<div id="product-gallery"></div>
-<div id="recommended-products"></div>
-<div id="new-products"></div>
-<div id="sale-products"></div>
-<div id="popular-products"></div>
 
     <!-- Полноэкранный режим -->
     <div id="fullscreen" class="fullscreen">
