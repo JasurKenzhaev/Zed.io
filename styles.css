@@ -1,83 +1,88 @@
+:root {
+    --primary-color: hsl(0, 0%, 20%);
+    --secondary-color: #BE95C4;
+    --accent-color: #BE95C4;
+    --background-color: #f0f0f0;
+    --text-color: #000;
+    --text-light: #ffffff;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #1e1e1e;
+    color: var(--text-light);
 }
 
 header {
-    background-color: #d2b48c;
-    color: #000000;
+    background-color: var(--primary-color);
+    color: var(--text-light);
     padding: 1em;
     text-align: center;
-    position: relative;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #BE95C4;
+}
+
+.shop-name {
+    color: var(--accent-color);
+}
+
+input[type="text"] {
+    padding: 0.5em;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 1em 0;
 }
 
 .menu-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #d2b48c;
-    border: 1px solid #ccc;
-    color: #000000;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: 1px solid var(--secondary-color);
     padding: 0.5em;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 .menu-button:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
 }
 
 .menu-panel {
     display: none;
     position: absolute;
     top: 40px;
-    left: 8px;
-    background-color: #d2b48c;
+    left: 10px;
+    background-color: var(--primary-color);
     border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
 
 .menu-panel button {
-    background-color: #d2b48c;
-    border: 1px solid #ccc;
-    color: #000000;
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--text-light);
     padding: 0.5em 1em;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s;
     width: 100%;
     text-align: left;
 }
 
 .menu-panel button:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
+    background-color: var(--secondary-color);
 }
 
 main {
@@ -85,49 +90,46 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 1em;
-    padding-bottom: 60px; /* Отступ снизу, чтобы контент не перекрывал кнопки */
+    padding-bottom: 60px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1050px;
     padding: 1em;
 }
 
 .product-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: var(--text-light);
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1em;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 350px;
-    margin-bottom: 15px;
-    cursor: pointer;
 }
 
 body.dark-mode .product-card {
     background-color: #1e1e1e;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
     max-width: 100%;
-    height: 180px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 25px;
     cursor: pointer;
     transition: transform 0.3s;
     margin-bottom: 1em;
@@ -149,32 +151,57 @@ body.dark-mode .product-card {
 
 .product-card .price {
     font-size: 1.2em;
-    color: #d2b48c;
+    color: var(--accent-color);
     margin-bottom: 1em;
 }
 
+.product-card .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .product-card button {
-    background-color: #007bff;
+    background-color: var(--accent-color);
     border: none;
-    color: #ffffff;
+    color: var(--text-light);
     padding: 0.5em 1em;
-    margin: 0.2em;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    width: 100%;
 }
 
 .product-card button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
+    background-color: #ffffff;
+    transform: scale(1.05);
+}
+
+.wishlist-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #fefefe;
+    border: none;
+    color: var(--text-color);
+    font-size: 0.5em;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 1;
+}
+
+.wishlist-button:hover {
+    color: var(--accent-color);
+}
+
+.wishlist-button.active {
+    color: rgb(255, 255, 255);
 }
 
 .cart {
-    margin-top: 10px;
+    margin-top: 25px;
     width: 100%;
     max-width: 600px;
-    background-color: #ffffff;
+    background-color: var(--text-light);
     border-radius: 8px;
     padding: 1em;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -182,7 +209,7 @@ body.dark-mode .product-card {
 
 body.dark-mode .cart {
     background-color: #1e1e1e;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .cart-item {
@@ -204,7 +231,7 @@ body.dark-mode .cart {
 .cart-item button {
     background-color: #dc3545;
     border: none;
-    color: #ffffff;
+    color: var(--text-light);
     padding: 0.5em;
     margin: 0.5em;
     border-radius: 5px;
@@ -214,14 +241,14 @@ body.dark-mode .cart {
 
 .cart-item button:hover {
     background-color: #c82333;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .btn {
     margin: 5px;
     padding: 10px;
-    background-color: #28a745;
-    color: #ffffff;
+    background-color: var(--accent-color);
+    color: var(--text-light);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -229,11 +256,10 @@ body.dark-mode .cart {
 }
 
 .btn:hover {
-    background-color: #218838;
-    transform: scale(1.1);
+    background-color: #8a8a8a;
+    transform: scale(1.05);
 }
 
-/* Модальное окно */
 .modal {
     display: none;
     position: fixed;
@@ -248,7 +274,7 @@ body.dark-mode .cart {
 }
 
 .modal-content {
-    background-color: #ffffff;
+    background-color: var(--text-light);
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -263,7 +289,7 @@ body.dark-mode .cart {
 
 body.dark-mode .modal-content {
     background-color: #1e1e1e;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .close {
@@ -280,7 +306,6 @@ body.dark-mode .modal-content {
     cursor: pointer;
 }
 
-/* Анимация перехода между картинками */
 .image-slider img {
     width: 100%;
     height: auto;
@@ -295,11 +320,10 @@ body.dark-mode .modal-content {
     opacity: 1;
 }
 
-/* Контейнер для изображений */
 .image-slider {
     position: relative;
     width: 100%;
-    height: 400px; /* Фиксированная высота для контейнера изображений */
+    height: 400px;
     overflow: hidden;
 }
 
@@ -308,13 +332,12 @@ body.dark-mode .modal-content {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    color: #fff;
+    color: var(--text-light);
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-/* Полноэкранный режим */
 .fullscreen {
     display: none;
     position: fixed;
@@ -346,12 +369,11 @@ body.dark-mode .modal-content {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #ffffff;
+    color: var(--text-light);
     font-size: 30px;
     cursor: pointer;
 }
 
-/* Чаты */
 .chat-container {
     display: none;
     position: fixed;
@@ -360,7 +382,7 @@ body.dark-mode .modal-content {
     width: 100%;
     max-width: 400px;
     height: 400px;
-    background-color: #ffffff;
+    background-color: var(--text-light);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
@@ -368,12 +390,12 @@ body.dark-mode .modal-content {
 
 body.dark-mode .chat-container {
     background-color: #1e1e1e;
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 .chat-header {
     background-color: #007bff;
-    color: #ffffff;
+    color: var(--text-light);
     padding: 10px;
     text-align: center;
     border-top-left-radius: 8px;
@@ -387,7 +409,7 @@ body.dark-mode .chat-container {
 }
 
 .chat-message {
-    background-color: #f1f1f1;
+    background-color: hsl(0, 0%, 100%);
     padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
@@ -401,7 +423,6 @@ body.dark-mode .chat-container {
     border-radius: 0 0 8px 8px;
 }
 
-/* Социальные сети */
 .social-media {
     position: absolute;
     top: 20px;
@@ -428,10 +449,6 @@ body.dark-mode .chat-container {
     transition: color 0.3s, transform 0.3s;
 }
 
-.social-media a.facebook {
-    color: #1877f2;
-}
-
 .social-media a.instagram {
     color: #e1306c;
 }
@@ -448,23 +465,18 @@ body.dark-mode .chat-container {
     color: #4a76a8;
 }
 
-.social-media a.youtube {
-    color: #ff0000;
-}
-
 .social-media a:hover {
     opacity: 0.7;
     transform: scale(1.2);
 }
 
-/* Кнопка переключения тем */
 .theme-toggle {
     position: absolute;
     bottom: 10px;
     left: 10px;
     background-color: transparent;
     border: none;
-    color: #000000;
+    color: var(--text-color);
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s;
@@ -474,23 +486,22 @@ body.dark-mode .chat-container {
     transform: scale(1.2);
 }
 
-/* Управляющие кнопки внизу */
 .bottom-nav {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #d2b48c;
+    background-color: var(--primary-color);
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    border-top: 1px solid #ccc;
-    z-index: 10; /* Увеличиваем z-index, чтобы кнопки всегда были поверх контента */
+    border-top: 1px solid #555;
+    z-index: 10;
 }
 
 .bottom-nav .nav-button {
     background-color: transparent;
     border: none;
-    color: #000000;
+    color: var(--text-light);
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s;
@@ -500,42 +511,59 @@ body.dark-mode .chat-container {
     transform: scale(1.2);
 }
 
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
     header {
-        padding: 0.5em;
+        padding: 1em;
     }
 
     .menu-button {
-        top: 5px;
-        left: 5px;
-        padding: 0.3em;
-        font-size: 18px;
+        padding: 0.5em;
+        font-size: 16px;
     }
 
     .menu-panel {
-        top: 40px;
+        top: 50px;
         left: 5px;
         width: calc(100% - 10px);
     }
 
     .menu-panel button {
-        padding: 0.3em 0.5em;
+        padding: 0.5em;
         font-size: 14px;
     }
 
     main {
-        padding: 0.5em;
-        padding-bottom: 60px; /* Отступ снизу, чтобы контент не перекрывал кнопки */
+        padding: 1em;
+        padding-bottom: 60px;
     }
 
     .gallery {
-        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .product-card {
-        width: 100%;
-        padding: 0.3em;
+        padding: 1em;
+    }
+
+    .product-card img {
+        height: 120px;
+    }
+
+    .product-card h2 {
+        font-size: 1em;
+    }
+
+    .product-card p {
+        font-size: 0.9em;
+    }
+
+    .product-card .price {
+        font-size: 1em;
+    }
+
+    .product-card button {
+        padding: 0.5em;
+        font-size: 14px;
     }
 
     .cart {
@@ -553,9 +581,9 @@ body.dark-mode .chat-container {
     }
 
     .social-media {
-        top: 5px;
-        right: 5px;
-        gap: 5px;
+        top: 10px;
+        right: 10px;
+        gap: 10px;
     }
 
     .social-media a {
@@ -563,18 +591,17 @@ body.dark-mode .chat-container {
     }
 
     .theme-toggle {
-        bottom: 5px;
-        left: 5px;
+        bottom: 10px;
+        left: 10px;
         font-size: 20px;
     }
 
-    /* Adjust bottom navigation for mobile */
     .bottom-nav {
-        padding: 5px;
+        padding: 10px;
     }
 
     .bottom-nav .nav-button {
         font-size: 20px;
-        padding: 5px;
+        padding: 10px;
     }
 }
